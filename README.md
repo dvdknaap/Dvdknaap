@@ -42,7 +42,7 @@ I execute **end-to-end penetration testing** across **Web, API, and AD/Enterpris
 - **Profiles**
   <p>
     <a href="https://tryhackme.com/p/Dannyk">
-      <img src="https://tryhackme-badges.s3.amazonaws.com/Dannyk.png" alt="TryHackMe Profile Badge" />
+      <img src="https://tryhackme-badges.s3.amazonaws.com/Dannyk.png?update=1" alt="TryHackMe Profile Badge" />
     </a>
   </p>
   <p>
