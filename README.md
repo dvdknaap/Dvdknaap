@@ -1,5 +1,5 @@
 # Danny van der Knaap
-### Full-Time Offensive Security Engineer | Advanced Tooling Architect
+### Full-Time Offensive Security Engineer | Pentester | Advanced Tooling Architect
 
 <div align="left">
   <img src="https://img.shields.io/badge/Role-Full--Time%20Pentester-critical?style=for-the-badge" alt="Role" />
