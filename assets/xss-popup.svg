@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" width="760" height="380" role="img" aria-label="A (fake) reflected XSS alert popup - it is just a static SVG, no JavaScript runs">
+  <title>Reflected XSS PoC (this is a harmless static SVG)</title>
+
+  <defs>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000000" flood-opacity="0.55"/>
+    </filter>
+    <clipPath id="win"><rect x="20" y="20" width="720" height="340" rx="12"/></clipPath>
+    <style>
+      /* ---- theme tokens: light by default, dark via media query ---- */
+      :root{
+        --winbg:#ffffff; --toolbar:#f1f3f4; --pill:#ffffff; --line:#dadce0;
+        --primary:#202124; --secondary:#5f6368; --urltext:#3c4043; --skel:#e8eaed;
+        --nav:#9aa0a6; --nav2:#c4c7c5; --dialog:#ffffff; --divider:#ecedef;
+        --btn2bg:#f1f3f4; --btn2text:#1a73e8; --btn1bg:#1a73e8; --btn1text:#ffffff;
+        --payload:#d93025; --lock:#5f6368; --caret:#3c4043;
+      }
+      @media (prefers-color-scheme: dark){
+        :root{
+          --winbg:#202124; --toolbar:#292a2d; --pill:#35363a; --line:#3c4043;
+          --primary:#e8eaed; --secondary:#9aa0a6; --urltext:#e8eaed; --skel:#3c4043;
+          --nav:#5f6368; --nav2:#5f6368; --dialog:#292a2d; --divider:#3c4043;
+          --btn2bg:#292a2d; --btn2text:#8ab4f8; --btn1bg:#8ab4f8; --btn1text:#202124;
+          --dialog:#303134; --divider:#3c4043;
+          --payload:#f28b82; --lock:#9aa0a6; --caret:#e8eaed;
+        }
+      }
+
+      text { font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+      .mono { font-family: 'JetBrains Mono','Cascadia Code',Consolas,monospace; }
+
+      .winbg{ fill:var(--winbg); } .toolbar{ fill:var(--toolbar); }
+      .pill{ fill:var(--pill); stroke:var(--line); }
+      .bd{ stroke:var(--line); }
+      .nav{ fill:var(--nav); } .nav2{ fill:var(--nav2); }
+      .primary{ fill:var(--primary); } .secondary{ fill:var(--secondary); }
+      .urltext{ fill:var(--urltext); } .skel{ fill:var(--skel); }
+      .dialog{ fill:var(--dialog); } .divider{ stroke:var(--divider); }
+      .btn2{ fill:var(--btn2bg); stroke:var(--line); } .btn2text{ fill:var(--btn2text); }
+      .btn1{ fill:var(--btn1bg); } .btn1text{ fill:var(--btn1text); }
+      .payload{ fill:var(--payload); font-weight:600; }
+      .lock{ fill:var(--lock); } .lockstroke{ stroke:var(--lock); }
+      .caretfill{ fill:var(--caret); }
+
+      @keyframes caret { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+      .caret { animation: caret 1s steps(1,end) infinite; }
+
+      @keyframes dim { from{opacity:0} to{opacity:1} }
+      .dim { animation: dim .5s ease-out .15s both; }
+
+      .popup { transform-box: fill-box; transform-origin: center; }
+      @keyframes pop {
+        0%   { opacity:0; transform: scale(.86) translateY(-12px); }
+        60%  { opacity:1; transform: scale(1.03) translateY(0); }
+        78%  { transform: scale(.995); }
+        100% { opacity:1; transform: scale(1); }
+      }
+      .popup { animation: pop 1.1s cubic-bezier(.2,.8,.2,1) .25s both; }
+
+      @keyframes flick { 0%,90%,100%{opacity:1} 93%{opacity:.4} 96%{opacity:1} }
+      .flick { animation: flick 3s infinite; }
+    </style>
+  </defs>
+
+  <!-- ===== browser window ===== -->
+  <rect class="winbg bd" x="20" y="20" width="720" height="340" rx="12" stroke-width="1.5"/>
+
+  <g clip-path="url(#win)">
+    <!-- toolbar -->
+    <rect class="toolbar" x="20" y="20" width="720" height="52"/>
+    <!-- nav buttons -->
+    <circle class="nav"  cx="48" cy="46" r="5.5"/>
+    <circle class="nav"  cx="72" cy="46" r="5.5"/>
+    <circle class="nav2" cx="96" cy="46" r="5.5"/>
+    <!-- url pill -->
+    <rect class="pill" x="120" y="33" width="600" height="26" rx="13"/>
+    <!-- lock -->
+    <rect class="lock" x="134" y="40" width="9" height="8" rx="1.5"/>
+    <path class="lockstroke" d="M136 40 v-2.5 a2.5 2.5 0 0 1 5 0 V40" fill="none" stroke-width="1.4"/>
+    <text class="urltext mono" x="150" y="50" font-size="13">https://target-corp.com/search?q=<tspan class="payload flick">&lt;script&gt;alert(document.cookie)&lt;/script&gt;</tspan></text>
+    <rect class="caretfill caret" x="700" y="38" width="1.5" height="16"/>
+
+    <!-- page content (reflection point) -->
+    <rect class="winbg" x="20" y="72" width="720" height="288"/>
+    <text class="primary"   x="48" y="112" font-size="20" font-weight="600">target-corp.com</text>
+    <text class="secondary" x="48" y="146" font-size="15">Results for: <tspan class="mono payload">&lt;script&gt;alert(document.cookie)&lt;/script&gt;</tspan></text>
+    <!-- skeleton result rows -->
+    <g class="skel">
+      <rect x="48" y="170" width="420" height="12" rx="6"/>
+      <rect x="48" y="192" width="560" height="10" rx="5"/>
+      <rect x="48" y="210" width="500" height="10" rx="5"/>
+      <rect x="48" y="244" width="380" height="12" rx="6"/>
+      <rect x="48" y="266" width="540" height="10" rx="5"/>
+      <rect x="48" y="284" width="470" height="10" rx="5"/>
+    </g>
+
+    <!-- dim overlay -->
+    <rect class="dim" x="20" y="72" width="720" height="288" fill="#000000" fill-opacity="0.42"/>
+  </g>
+
+  <!-- ===== the (fake) JS alert dialog ===== -->
+  <g class="popup">
+    <g filter="url(#shadow)">
+      <rect class="dialog bd" x="190" y="120" width="380" height="158" rx="10" stroke-width="1"/>
+    </g>
+    <!-- header -->
+    <text class="primary" x="214" y="158" font-size="16" font-weight="600">target-corp.com says</text>
+    <line class="divider" x1="190" y1="176" x2="570" y2="176"/>
+    <!-- body -->
+    <text class="primary"   x="214" y="206" font-size="15">XSS by Danny van der Knaap</text>
+    <text class="secondary mono" x="214" y="230" font-size="13">document.cookie  &#8594;  exfiltrated</text>
+    <!-- buttons -->
+    <rect class="btn2" x="326" y="246" width="108" height="30" rx="6"/>
+    <text class="btn2text" x="380" y="266" font-size="13" text-anchor="middle" font-weight="600">Report Bug</text>
+    <rect class="btn1" x="446" y="246" width="100" height="30" rx="6"/>
+    <text class="btn1text" x="496" y="266" font-size="13" text-anchor="middle" font-weight="600">OK</text>
+  </g>
+</svg>

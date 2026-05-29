@@ -1,48 +1,89 @@
-# Danny van der Knaap
-### Full-Time Offensive Security Engineer | Pentester | Advanced Tooling Architect
+<!--
+  ────────────────────────────────────────────────────────────────────────────
+   If you are reading this, you already think like an attacker. Recon pays off.
+   Source-code review is the first phase of any serious assessment — nice habit.
 
-<div align="left">
-  <img src="https://img.shields.io/badge/Role-Full--Time%20Pentester-critical?style=for-the-badge" alt="Role" />
-  <img src="https://img.shields.io/badge/Focus-Web%20%26%20Cloud%20Exploitation-blueviolet?style=for-the-badge" alt="Focus" />
-  <img src="https://img.shields.io/badge/Base-The%20Netherlands-success?style=for-the-badge" alt="Location" />
+   Here is a flag for the curious:   dvdknaap{v13w_s0urc3_r3c0n_p4ys_0ff}
+
+   Built with intent: every animation here is pure declarative SVG (CSS/SMIL).
+   No JavaScript runs in a GitHub README — the sanitizer strips it. So the
+   "XSS popup" further down is, of course, a harmless static image. Or is it.
+  ────────────────────────────────────────────────────────────────────────────
+-->
+
+<div align="center">
+
+<img src="./assets/hero-matrix.svg" alt="Danny van der Knaap — Offensive Security Engineer" width="880">
+
+<br><br>
+
+<img src="https://img.shields.io/badge/Role-Full--Time_Pentester-006d32?style=for-the-badge&labelColor=0d1117" alt="Role" />
+<img src="https://img.shields.io/badge/Focus-Web_%26_Cloud_Exploitation-006d32?style=for-the-badge&labelColor=0d1117" alt="Focus" />
+<img src="https://img.shields.io/badge/Base-The_Netherlands-006d32?style=for-the-badge&labelColor=0d1117" alt="Location" />
+<br>
+<img src="https://komarev.com/ghpvc/?username=dvdknaap&color=00ff41&style=for-the-badge&label=PROFILE+VIEWS" alt="Profile views" />
+
 </div>
 
-<br>
+---
 
-I am a Full-Time Penetration Tester and Bug Bounty Hunter specializing in advanced web exploitation, custom offensive tooling development, and deep-dive infrastructure assessments. I do not rely solely on off-the-shelf scanners; I architect asynchronous, context-aware frameworks to exploit complex logic flaws, race conditions, and deserialization vulnerabilities in modern, high-latency environments.
+## `~$ whoami`
 
-### Current Focus & Mastery
-- **HTB Certified Web Exploitation Expert (CWEE):** Currently at 85% module completion, actively preparing for the certification exam.
-- **PortSwigger Web Security Academy:** **100%** Labs solved, all modules completed, and passed both practice exams.
+I am a full-time Penetration Tester and Bug Bounty Hunter specializing in advanced web exploitation, custom offensive tooling, and deep-dive infrastructure assessments. I do not rely solely on off-the-shelf scanners; I architect asynchronous, context-aware frameworks to exploit complex logic flaws, race conditions, and deserialization vulnerabilities in modern, high-latency environments.
+
+When a target resists the standard toolkit, I build the tool that breaks it.
+
+---
+
+## `~$ ls ./certifications`
+
+<div align="left">
+
+<a href="https://app.hackthebox.com/users/36131">
+  <img src="https://img.shields.io/badge/HTB-CWEE-9FEF00?style=for-the-badge&logo=hackthebox&logoColor=black&labelColor=111927" alt="CWEE" />
+</a>
+<a href="https://app.hackthebox.com/users/36131">
+  <img src="https://img.shields.io/badge/HTB-CPTS-9FEF00?style=for-the-badge&logo=hackthebox&logoColor=black&labelColor=111927" alt="CPTS" />
+</a>
+<a href="https://app.hackthebox.com/users/36131">
+  <img src="https://img.shields.io/badge/HTB-CWES-9FEF00?style=for-the-badge&logo=hackthebox&logoColor=black&labelColor=111927" alt="CWES" />
+</a>
+
+</div>
+
+- **HTB Certified Web Exploitation Expert (CWEE):** Passed — the advanced, fully hands-on benchmark for grey/white-box web exploitation.
+- **HTB Certified Penetration Testing Specialist (CPTS):** Full-scope network and AD penetration testing.
+- **HTB Certified Web Exploitation Specialist (CWES):** Bug-bounty and web app testing _(formerly CBBH, renamed by HTB in October 2025)._
+- **PortSwigger Web Security Academy:** **100%** of labs solved, every module completed, both practice exams passed.
 - **Continuous R&D:** Developing pure-logic payloads and runtime-first architectures to bypass modern WAFs and EDRs.
 
 ---
 
-## The Offensive Arsenal (Private Tooling)
+## `~$ ls ./arsenal --private`
 
-A selection of my proprietary frameworks and utilities built to automate complex attack chains, bypass filters, and maximize assessment velocity.
+A selection of my proprietary frameworks and utilities, built to automate complex attack chains, bypass filters, and maximize assessment velocity.
 
-| Tool Name | Category | Core Capability |
+| Tool | Category | Core Capability |
 | :--- | :--- | :--- |
-| **Chronos** | `Concurrency & Timing` | Asynchronous last-byte synchronization for Race Conditions and high-precision time-based fuzzing. |
-| **BitSQL** | `Database Exploitation` | Universal, async framework for advanced Blind SQLi (BEUSTQ), dynamic WAF evasion, and out-of-band RCE. |
+| **Chronos** | `Concurrency & Timing` | Asynchronous last-byte synchronization for race conditions and high-precision time-based fuzzing. |
+| **BitSQL** | `Database Exploitation` | Universal async framework for advanced blind SQLi (BEUSTQ), dynamic WAF evasion, and out-of-band RCE. |
 | **Blinj** | `Blind Injection` | Runtime-first payload architecture (Node.js, PHP, Python) for byte-accurate extraction without OS piping. |
-| **ProtoMap** | `AST & Logic Flaws` | Automated discovery and exploitation of Server/Client-Side Prototype Pollution and HTTP Parameter Pollution. |
+| **ProtoMap** | `AST & Logic Flaws` | Automated discovery and exploitation of server/client-side prototype pollution and HTTP parameter pollution. |
 | **GQLMap** | `API Security` | High-velocity GraphQL enumeration, security auditing, and intelligent introspection fuzzing. |
 | **Polyglot Serializer** | `Deserialization` | Interactive multi-language (PHP, Python, Ruby, Java) gadget orchestration and OOB blind RCE shell. |
-| **Juggler** | `Fuzzing Engine` | Context-aware Type Juggling fuzzer with high-performance local magic hash bruteforcing. |
-| **Cryptmap** | `Cryptography` | Offline, CLI-based dynamic payload encoding, hashing, and AES-CBC encryption utility. |
+| **Juggler** | `Fuzzing Engine` | Context-aware type-juggling fuzzer with high-performance local magic-hash bruteforcing. |
+| **Cryptmap** | `Cryptography` | Offline CLI for dynamic payload encoding, hashing, and AES-CBC encryption. |
 
 ---
 
-## Burp Suite Engineering (Java Extensions)
+## `~$ cat ./burp_extensions.md`
 
-- **Burp Content Viewer:** An advanced native extension that automatically detects, prettifies, and visualizes complex HTTP responses (minified JSON/XML, raw CSV tables, PDF rendering, EXIF metadata extraction) directly within the message editor.
-- **OOB Collaborator Export:** A professional extension featuring an embedded Tailwind CSS web dashboard and JSON API to export out-of-band interactions to local automation pipelines, keeping the Burp Scanner logs pristine.
+- **Burp Content Viewer:** A native extension that automatically detects, prettifies, and visualizes complex HTTP responses (minified JSON/XML, raw CSV tables, PDF rendering, EXIF metadata extraction) directly inside the message editor.
+- **OOB Collaborator Export:** A professional extension featuring an embedded Tailwind CSS web dashboard and a JSON API to export out-of-band interactions into local automation pipelines — keeping the Burp Scanner logs pristine.
 
 ---
 
-## Core Tech Footprint
+## `~$ cat ./tech_stack.txt`
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
@@ -53,22 +94,58 @@ A selection of my proprietary frameworks and utilities built to automate complex
 
 ---
 
-## Certifications & Community
+## `~$ ./stats --live`
+
+<div align="center">
+
+<img height="165" src="https://github-readme-stats.vercel.app/api?username=dvdknaap&show_icons=false&hide_border=true&bg_color=0d1117&title_color=00ff41&text_color=c9d1d9&count_private=true" alt="GitHub stats" />
+<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=dvdknaap&layout=compact&hide_border=true&bg_color=0d1117&title_color=00ff41&text_color=c9d1d9" alt="Top languages" />
+
+<br>
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=dvdknaap&bg_color=0d1117&color=00ff41&line=00ff41&point=39d353&area=true&hide_border=true" alt="Contribution activity graph" width="820" />
+
+<br>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dvdknaap/Dvdknaap/output/snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/dvdknaap/Dvdknaap/output/snake-light.svg">
+  <img alt="Snake eating the contribution graph" src="https://raw.githubusercontent.com/dvdknaap/Dvdknaap/output/snake-dark.svg" width="820">
+</picture>
+
+</div>
+
+---
+
+## `~$ inject --payload "<script>alert(1)</script>"`
+
+<details>
+<summary><b>Reflected XSS proof-of-concept — click to expand</b></summary>
+
+<br>
+
+<div align="center">
+<img src="./assets/xss-popup.svg" alt="A reflected XSS alert popup (static SVG)" width="640">
+</div>
+
+</details>
+
+---
+
+## `~$ ./connect`
+
+<div align="left">
 
 <a href="https://app.hackthebox.com/users/36131">
-  <img src="https://img.shields.io/badge/HTB-CPTS-2bbc8a?style=for-the-badge&logo=hackthebox&logoColor=white" alt="CPTS" />
-</a>
-<a href="https://app.hackthebox.com/users/36131">
-  <img src="https://img.shields.io/badge/HTB-CBBH-2bbc8a?style=for-the-badge&logo=hackthebox&logoColor=white" alt="CBBH" />
-</a>
-
-<br><br>
-
-<a href="https://app.hackthebox.com/users/36131">
-  <img src="https://www.hackthebox.com/badge/image/36131" alt="Hack The Box Profile Badge" width="250" />
+  <img src="https://www.hackthebox.com/badge/image/36131" alt="Hack The Box Profile" width="250" />
 </a>
 &nbsp;&nbsp;&nbsp;
 <a href="https://tryhackme.com/p/Dannyk">
-  <img src="https://tryhackme-badges.s3.amazonaws.com/Dannyk.png?update=1" alt="TryHackMe Profile Badge" width="250" />
+  <img src="https://tryhackme-badges.s3.amazonaws.com/Dannyk.png?update=1" alt="TryHackMe Profile" width="250" />
 </a>
 
+</div>
+
+<br>
+
+<sub>The best findings are the ones nobody else bothered to look for. The same goes for this page — the real recon starts in the source.</sub>
