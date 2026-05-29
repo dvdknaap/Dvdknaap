@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 920 420" width="920" height="420" role="img" aria-label="Danny van der Knaap - Offensive Security Engineer terminal banner">
+  <title>dvdknaap@hackthebox:~ // Offensive Security Engineer</title>
+
+  <defs>
+    <!-- panel + glow -->
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b120b"/>
+      <stop offset="1" stop-color="#060a06"/>
+    </linearGradient>
+    <radialGradient id="vignette" cx="50%" cy="40%" r="75%">
+      <stop offset="0" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.55"/>
+    </radialGradient>
+    <filter id="softglow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- scanlines -->
+    <pattern id="scan" width="3" height="3" patternUnits="userSpaceOnUse">
+      <rect width="3" height="3" fill="#000000" fill-opacity="0"/>
+      <rect width="3" height="1" y="0" fill="#00ff41" fill-opacity="0.05"/>
+    </pattern>
+
+    <style>
+      :root { font-family: 'JetBrains Mono','Fira Code','Cascadia Code',Consolas,Menlo,monospace; }
+      text { font-family: 'JetBrains Mono','Fira Code','Cascadia Code',Consolas,Menlo,monospace; }
+
+      .brightgreen { fill:#00ff41; }
+      .midgreen    { fill:#39d353; }
+      .dimgreen    { fill:#1f8a3b; }
+      .white       { fill:#cfe8d4; }
+
+      /* typewriter reveal per line */
+      .line { clip-path: inset(0 100% 0 0); }
+      @keyframes type { to { clip-path: inset(0 -24px 0 0); } }
+      .l1{ animation: type .55s steps(20,end) .25s forwards; }
+      .l2{ animation: type .50s steps(16,end) .95s forwards; }
+      .l3{ animation: type .75s steps(20,end) 1.55s forwards; }
+      .l4{ animation: type .50s steps(18,end) 2.45s forwards; }
+      .l5{ animation: type .80s steps(58,end) 3.05s forwards; }
+      .l6{ animation: type .55s steps(22,end) 4.00s forwards; }
+      .l7{ animation: type .60s steps(30,end) 4.65s forwards; }
+      .l8{ animation: type .25s steps(8,end)  5.35s forwards; }
+
+      /* blinking cursor */
+      @keyframes blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+      .cursor { animation: blink 1s steps(1,end) infinite; }
+      .cursor.late { opacity:0; animation: blink 1s steps(1,end) 5.6s infinite; }
+
+      /* name glitch (RGB split jitter, mostly still) */
+      @keyframes gjit {
+        0%, 86%, 100% { transform: translate(0,0); opacity:0; }
+        87% { transform: translate(-2px,1px); opacity:.9; }
+        90% { transform: translate(2px,-1px); opacity:.7; }
+        93% { transform: translate(-1px,0); opacity:.8; }
+        96% { transform: translate(1px,1px); opacity:0; }
+      }
+      .gx-cyan    { fill:#00fff9; animation: gjit 5s infinite; }
+      .gx-magenta { fill:#ff00c1; animation: gjit 5s .08s infinite reverse; }
+
+      /* matrix rain columns */
+      @keyframes fall { from { transform: translateY(-460px); } to { transform: translateY(460px); } }
+      .rain text { fill:#00ff41; font-size:18px; }
+      .rc { opacity:.22; }
+
+      /* subtle panel flicker */
+      @keyframes flick { 0%,97%,100%{opacity:1} 98%{opacity:.93} 99%{opacity:.97} }
+      .panel { animation: flick 7s infinite; }
+    </style>
+  </defs>
+
+  <!-- backdrop -->
+  <rect width="920" height="420" fill="#050805"/>
+
+  <!-- matrix rain (behind panel, frames the edges) -->
+  <g class="rain">
+    <g class="rc" style="animation:fall 6s linear infinite;"><text x="40"  y="0">ｱ1ﾐ0ﾊ1ｷ0ﾂ</text></g>
+    <g class="rc" style="animation:fall 8s linear -2s infinite;"><text x="140" y="0">0ﾘ1ｻ0ﾇ1ﾅ0ｿ</text></g>
+    <g class="rc" style="animation:fall 5s linear -1s infinite;"><text x="820" y="0">1ﾔ0ﾍ1ｺ0ﾄ1ｱ</text></g>
+    <g class="rc" style="animation:fall 9s linear -3s infinite;"><text x="880" y="0">ﾆ0ﾗ1ﾑ0ﾎ1ｾ</text></g>
+    <g class="rc" style="animation:fall 7s linear -4s infinite;"><text x="20"  y="0">0ﾙ1ﾈ0ｼ1ﾀ0</text></g>
+    <g class="rc" style="animation:fall 6.5s linear -2.5s infinite;"><text x="900" y="0">1ﾌ0ﾝ1ﾋ0ｸ1</text></g>
+  </g>
+
+  <!-- terminal panel -->
+  <g class="panel">
+    <rect x="20" y="20" width="880" height="380" rx="14" fill="url(#panel)" stroke="#10401d" stroke-width="1.5"/>
+    <rect x="20" y="20" width="880" height="380" rx="14" fill="none" stroke="#00ff41" stroke-opacity="0.18" stroke-width="1"/>
+
+    <!-- title bar -->
+    <rect x="20" y="20" width="880" height="34" rx="14" fill="#0a0f0a"/>
+    <rect x="20" y="40" width="880" height="14" fill="#0a0f0a"/>
+    <circle cx="44" cy="37" r="6" fill="#ff5f56"/>
+    <circle cx="66" cy="37" r="6" fill="#ffbd2e"/>
+    <circle cx="88" cy="37" r="6" fill="#27c93f"/>
+    <text x="460" y="42" text-anchor="middle" font-size="13" class="dimgreen">dvdknaap@0day: ~</text>
+
+    <!-- typed session -->
+    <g filter="url(#softglow)" font-size="18">
+      <!-- L1 prompt header -->
+      <text class="line l1" x="48" y="92" font-size="15">
+        <tspan class="dimgreen">┌─[</tspan><tspan class="midgreen">dvdknaap@0day</tspan><tspan class="dimgreen">]─[</tspan><tspan class="midgreen">~</tspan><tspan class="dimgreen">]</tspan>
+      </text>
+
+      <!-- L2 whoami -->
+      <text class="line l2" x="48" y="120">
+        <tspan class="dimgreen">└──╼</tspan> <tspan class="brightgreen">$</tspan> <tspan class="white">whoami</tspan>
+      </text>
+
+      <!-- L3 name (with glitch layers) -->
+      <g class="line l3">
+        <text x="78" y="162" font-size="30" font-weight="700" class="gx-cyan">Danny van der Knaap</text>
+        <text x="78" y="162" font-size="30" font-weight="700" class="gx-magenta">Danny van der Knaap</text>
+        <text x="78" y="162" font-size="30" font-weight="700" class="brightgreen">Danny van der Knaap</text>
+      </g>
+
+      <!-- L4 cat role -->
+      <text class="line l4" x="48" y="200">
+        <tspan class="dimgreen">└──╼</tspan> <tspan class="brightgreen">$</tspan> <tspan class="white">cat role.txt</tspan>
+      </text>
+
+      <!-- L5 role -->
+      <text class="line l5" x="78" y="230" font-size="16">
+        <tspan class="midgreen">Offensive Security Engineer · Pentester · Bug Bounty Hunter</tspan>
+      </text>
+
+      <!-- L6 load certs -->
+      <text class="line l6" x="48" y="270">
+        <tspan class="dimgreen">└──╼</tspan> <tspan class="brightgreen">$</tspan> <tspan class="white">./load_certs.sh</tspan>
+      </text>
+
+      <!-- L7 certs -->
+      <text class="line l7" x="78" y="300" font-size="18">
+        <tspan class="brightgreen">[CWEE]</tspan>  <tspan class="brightgreen">[CPTS]</tspan>  <tspan class="brightgreen">[CWES]</tspan>   <tspan class="midgreen">loaded </tspan>
+      </text>
+
+      <!-- L8 final prompt + cursor -->
+      <g class="line l8">
+        <text x="48" y="338"><tspan class="dimgreen">└──╼</tspan> <tspan class="brightgreen">$</tspan> </text>
+      </g>
+      <rect class="cursor late" x="92" y="324" width="11" height="18" fill="#00ff41"/>
+    </g>
+  </g>
+
+  <!-- overlays: scanlines + vignette -->
+  <rect x="20" y="20" width="880" height="380" rx="14" fill="url(#scan)"/>
+  <rect width="920" height="420" fill="url(#vignette)"/>
+</svg>
